@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %} My Blog {% endblock %}
+
+{% block content %}
+
+
+<!-- Form for adding new blog -->
+<form method="POST" >
+    {% csrf_token %}
+    <!-- Container Start-->
+    <div class="container-fluid justify-content-center  vh-100 d-flex">
+        <!-- Row start-->
+        <div class="row col-md-8 justify-content-center">
+            <div class="col">
+
+                
+        
+
+            <h1 style="font-weight: 900;">Welcome to My Blog!</h1>
+<p style="padding-bottom: 25px;">Django project successfully connected! 🎉</p>
+
+                <div class="mb-3 align-left d-flex align-items-left">
+     <label for="text" class="form-label h3 text-secondary" style="font-weight: bold;">Title:</label>
+    <input type="text" name="title" placeholder="Title" class="form-control shadow-sm py-3">  
+    <br>
+    </div>
+
+    <div class="mb-3 d-flex align-items-left">
+     <label for="text" class="form-label h3 text-secondary" style="font-weight: bold;">Content:</label>
+    <textarea name="content" placeholder="Let's Start,..."  class="form-control shadow-sm py-3"  rows="6"></textarea> <br>
+    </div>
+
+    <div class="mb-3 d-flex align-items-left">
+    <label style="font-weight: bold;" class="form-label h3 text-secondary">Author:</label>
+    <input type="text" name="author" placeholder="Author" class="form-control shadow-sm py-3"> <br>
+    </div>
+    <button type="submit" class="btn btn-success m-3 shadow-sm">Primary</button>
+    <!--Card end-->
+   
+    <!-- Col End-->
+    </div>
+    <!-- Row end-->
+    </div>
+    <!-- Contaner end-->
+</div>
+
+
+<div class="containor justify-content-center  vh-100 " > 
+  <div class="row mx-5 ">
+<h1 style="font-weight: 900;"> Blogs</h1>
+    {% for blog in blogs %}
+    <div class="col-md-6 col-lg-4 col-sm-12 g-3">
+        
+        <div class="card shadow p-3 " >
+            <div class="card-body">
+                <h5 class="card-title h3 fw-bold text-success ">{{ blog.title }}</h5>
+                <p class="card-text">{{ blog.content|truncatewords:20 }}</p>
+                <h6  style="font-weight: 700; color:darkolivegreen">{{ blog.author.username }}</h6>
+                
+                         <a href="{% url 'blog_detail' blog.id %}" class="btn btn-success">
+    Read More
+</a>
+                <a href="{% url 'blog_edit' blog.id %}" class="btn btn-warning">
+    Edit
+</a>
+<a href="{% url 'blog_delete' blog.id %}" class="btn btn-danger">
+    Delete
+</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</form>
+
+<hr>
+
+<!-- Display existing blogs -->
+ 
+
+
+
+
+
+{% endblock %}

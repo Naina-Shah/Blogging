@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<form method="POST" action="{% url 'register' %}">
+    
+    {% csrf_token %}
+
+<div class="container-fluid">
+  <div class="row m-3 justify-content-center">
+    <div class="col-md-5 m-5">
+        <div class="card shadow" >
+    <h1 class="display-2.5 p-5 fw-bold text-success">REGISTRATION FORM</h1>
+<div class="mb-3 px-4">
+    <label for="username" class="form-label">Username:</label>
+    <input type="text" class="form-control" id="id_username" placeholder="Enter Username" name="username">
+    
+  </div>
+
+ 
+  <div class="mb-3 px-4">
+    <label for="password1" class="form-label">Password:</label>
+    <input type="password" class="form-control" id="id_password1" placeholder="Enter password" name="password1">
+  </div>
+
+  <div class="mb-3 px-4">
+    <label for="password2" class="form-label">Password:</label>
+    <input type="password" class="form-control" id="id_password2" placeholder="Enter password" name="password2">
+  </div>
+  
+  <div class="button pb-5">
+  <button type="submit" class="btn btn-success shadow">Submit</button>
+  </div>
+
+    </div>
+  </div>
+
+</div>
+ 
+</form>
+{% endblock %} 
