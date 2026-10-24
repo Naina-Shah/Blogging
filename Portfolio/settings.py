@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-w#&d$1u23@1p(wya&p%9xr88fj&1e^y_7)mpy7r-3#_-%=l#-#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "blogging-rkfa-eta.vercel.app",
+]
 
 
 # Application definition
