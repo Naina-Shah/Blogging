@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "blogging-rkfa-eta.vercel.app",
+    ".vercel.app",
+
 ]
 
 
