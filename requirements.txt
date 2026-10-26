@@ -1,1 +1,4 @@
 Django
+dj-database-url
+python-dotenv
+psycopg[binary]
